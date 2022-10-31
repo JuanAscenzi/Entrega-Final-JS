@@ -55,7 +55,7 @@ const comprar = (canilla) =>{
 
 //renderizador con forEach pude poner ahora un const con id,imagen,etc para luego unicamente llamrlo por su nombre creo que se puede hacer mas lindo agregandole cosas pero no se casi nada de css
 let canillas
-fetch("../data.json")
+fetch("./Json/data.json")
 .then((response) => response.json())
   .then((data) => {
     data.forEach((nuevaCanilla) => {
