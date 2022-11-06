@@ -71,15 +71,8 @@ const buscadorCanillas = (search) => {
 listaProductosComprados.addEventListener("click",() => console.log(carrito))
 botonInput.addEventListener("click",() => buscadorCanillas(inputAfter.value));
 botonVaciar.addEventListener("click", () => localStorage.clear(carrito))
-botonVaciar.addEventListener("click", () => {carrito.length = 0 && Swal.fire({
-    title: "¡Desea vaciar el carrito?",
-    showDenyButton: true,
-    showCancelButton: true,
-    confirmButtonText: "Vaciar",
-    denyButtonText: "Seguir comprando",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire('Vaciado', '', 'success')
-    } else if (result.isDenied) {
-      Swal.fire("El carrito sigue lleno", '', 'info')
-        }})})
+botonVaciar.addEventListener("click", () => {
+  Swal.fire({
+     title: "Carrito vacío",
+    confirmButtonText: "Aceptar",
+  })});
