@@ -14,3 +14,17 @@ img {
     var(--bs-bg-opacity)
   ) !important;
 }
+
+body{
+  background: lightcyan;
+}
+
+.iconoCarrito{
+  margin-left: 96vw;
+  width: 2.5vw;
+  height: auto;
+}
+
+.titulo{
+  margin-top: 70vw;
+}

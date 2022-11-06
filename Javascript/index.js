@@ -1,13 +1,21 @@
-//Creo todas las constantes  para llamarlas con los getElementById
+//Ttodas las constantes creadas para llamarlas con los getElementById.
 const contenedorProductos = document.getElementById("cards");
 const boton = document.getElementById("boton");
 const inputAfter = document.getElementById("inputAfter");
 const botonInput = document.getElementById("botonInput");
 const botonVaciar = document.getElementById("botonVaciar");
 const listaProductosComprados = document.getElementById("listaProductosComprados");
+const iconoCarrito = document.getElementById("botonCarrito")
 
+
+
+
+
+//Carrito vacio para pushearle objetos.
 let carrito = [];
 
+
+//Function nueva con objetos del array en "data.json".
 function nuevaCanilla(id, nombre, precio, imagen){
     this.id = id,
     this.nombre =nombre,
@@ -15,33 +23,9 @@ function nuevaCanilla(id, nombre, precio, imagen){
     this.imagen = imagen
 };
 
-//Aca con un arrow function establecemos que el productoComprado sea el item seleccionado y con operadores simplifique el if y el else
-// decidiendo que segun la condicion se ejecute, tambien el ...canillas y el productoComprado.cantidad++ son operadores para simplificar
-/*const comprar = (canilla) => {
-    let productoComprado = carrito.find((item) => item.id === canillas.id);
-        if (productoComprado === undefined) {
-            carrito.push({
-            id: canillas.id,
-            nombre: canillas.nombre,
-            precio: canillas.precio,
-            imagen: canillas.imagen,
-            cantidad: 1,
-        });
-        } else {
-            productoComprado.precio = productoComprado.precio + canillas.precio;
-            productoComprado.cantidad = productoComprado.cantidad + 1;
-        }
-    };*/
-    
-const comprar = (canilla) =>{
-    Toastify({
-        text: "Agregado al carrito",
-        gravity: "bottom",
-        className: "info",
-        style: {
-                background: "8758FF",
-        }
-        }).showToast();           
+
+//Declaracion variable comprar y agregado de la funcion con arrow function. Operadores de 3 tipos para optimizar el codigo.
+const comprar = (canilla) =>{        
     let productoComprado = carrito.find(item => {
                         return item.id === canilla.id
 })
@@ -53,7 +37,7 @@ const comprar = (canilla) =>{
                 console.log(canilla);
 };
 
-//renderizador con forEach pude poner ahora un const con id,imagen,etc para luego unicamente llamrlo por su nombre creo que se puede hacer mas lindo agregandole cosas pero no se casi nada de css
+//Variable canillas con fetch y then para traer el array desde data.json.
 let canillas
 fetch("./Json/data.json")
 .then((response) => response.json())
@@ -77,12 +61,14 @@ fetch("./Json/data.json")
   });
 });
 
+
 const actualizarCarrito = () => {
     carrito.length = 0
     actualizarCarrito()
 }
 
-//Creo un buscador de canillas con un arrow function
+
+//Buscador de canillas funcional. Mi problema es que si no aclaro que sea la de 50 lts busca automaticamente la de 30, pero ambas se pueden econtrar.
 const buscadorCanillas = (search) => {
 	search = search.toLowerCase()
 	let buscadorCanillas = canillas.find(canillas => canillas.nombre.toLowerCase().includes(search));
@@ -90,23 +76,19 @@ const buscadorCanillas = (search) => {
 	inputAfter.value = ``
 }
 
+//Todos los addEventListener para los respectivos botones y sus funciones.
 listaProductosComprados.addEventListener("click",() => console.log(carrito))
 botonInput.addEventListener("click",() => buscadorCanillas(inputAfter.value));
 botonVaciar.addEventListener("click", () => localStorage.clear(carrito))
 botonVaciar.addEventListener("click", () => {carrito.length = 0 && Swal.fire({
-        title: 'Seguro que desea vaciar el carrito?',
-        showDenyButton: true,
-        confirmButtonText: 'Vaciar',
-        denyButtonText: `Cancelar`,
-        }).then((result) => {
-        if (result.isDenied) {
-        } else if (result.isConfirmed) {
-                Swal.fire('Carrito vaciado')
-        }
-        })})
-        
-/*botonVaciar.addEventListener("click" , () => {
-        carrito.length = 0
-        actualizarCarrito(
-)
-})*/ 
+    title: "¡Desea vaciar el carrito?",
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: "Vaciar",
+    denyButtonText: "Seguir comprando",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire('Vaciado', '', 'success')
+    } else if (result.isDenied) {
+      Swal.fire("El carrito sigue lleno", '', 'info')
+        }})})
