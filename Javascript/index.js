@@ -1,4 +1,4 @@
-//Ttodas las constantes creadas para llamarlas con los getElementById.
+//Todas las constantes creadas para llamarlas con los getElementById.
 const contenedorProductos = document.getElementById("cards");
 const boton = document.getElementById("boton");
 const inputAfter = document.getElementById("inputAfter");
@@ -6,9 +6,6 @@ const botonInput = document.getElementById("botonInput");
 const botonVaciar = document.getElementById("botonVaciar");
 const listaProductosComprados = document.getElementById("listaProductosComprados");
 const iconoCarrito = document.getElementById("botonCarrito")
-
-
-
 
 
 //Carrito vacio para pushearle objetos.
@@ -60,12 +57,6 @@ fetch("./Json/data.json")
     canillas=data
   });
 });
-
-
-const actualizarCarrito = () => {
-    carrito.length = 0
-    actualizarCarrito()
-}
 
 
 //Buscador de canillas funcional. Mi problema es que si no aclaro que sea la de 50 lts busca automaticamente la de 30, pero ambas se pueden econtrar.
