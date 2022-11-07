@@ -31,8 +31,12 @@ const comprar = (canilla) =>{
                 : (productoComprado.precio = productoComprado.precio + canilla.precio,
                 productoComprado.cantidad++);
                 localStorage.setItem("carrito", JSON.stringify(carrito));
-                console.log(canilla);
-};
+                Swal.fire({
+                  title: "Usted compro " +canilla.nombre,
+                 confirmButtonText: "Aceptar",
+               })};
+             ;
+;
 
 //Variable canillas con fetch y then para traer el array desde data.json.
 let canillas
@@ -63,7 +67,7 @@ fetch("./Json/data.json")
 const buscadorCanillas = (search) => {
 	search = search.toLowerCase()
 	let buscadorCanillas = canillas.find(canillas => canillas.nombre.toLowerCase().includes(search));
-	console.log(buscadorCanillas.nombre);
+	alert(buscadorCanillas.nombre);
 	inputAfter.value = ``
 }
 
