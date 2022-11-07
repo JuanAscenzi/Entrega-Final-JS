@@ -5,7 +5,7 @@ const inputAfter = document.getElementById("inputAfter");
 const botonInput = document.getElementById("botonInput");
 const botonVaciar = document.getElementById("botonVaciar");
 const listaProductosComprados = document.getElementById("listaProductosComprados");
-const iconoCarrito = document.getElementById("botonCarrito")
+
 
 
 //Carrito vacio para pushearle objetos.
