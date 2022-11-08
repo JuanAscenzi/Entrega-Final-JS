@@ -80,3 +80,12 @@ botonVaciar.addEventListener("click", () => {
      title: "Carrito vacío",
     confirmButtonText: "Aceptar",
   })});
+
+
+  /*Profesor disculpe el horario de entrega, esto es lo mas lindo que lo pude dejar, funciona todo lo que me pide la consigna, ante cualquier duda obvio espero su respuesta,
+  logre que por alert muestre los elementos buscados pero seguro usandolo vera el error de que si toca solo el buscador encuentra al de primer id y etc, pero con aclarar el 50 de los litros
+  encuentra todos porque bueno funciona bien pero tiene ese detalle. Por SweeetAlert como libreria muestra el objeto comprado y tambien cuando el carrito se vacia, obviamente los botones funcionan
+  pero hay que verlos por la inspeccion, en la consola y application. Tuve que crear hoy a las apuradas una carpeta con imagenes y editarlas porque las que tenia en uso las habia sacado de 
+  Facebook y a usted no le iban a aprecer uno de los chicos del curso me comento por donde usted lo va a ver mi repositorio y tuve que agilizar con ese tema. Me gustaria haberlo dejado mas 
+  prolijo pero este es el primer curso que hago, tendre que hacer el de desarrollo web como minimo de manera online porque me anote sin saber que era un requisito,
+   las clases estuvieron muy buenas gracias a ustede y a todos los tutores se agradece muchisimo. Estoy a la espera de su devolucion desde ya muchas gracias y buena semana.*/
